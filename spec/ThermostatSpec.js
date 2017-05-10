@@ -19,4 +19,14 @@ describe('Thermostat', function() {
     thermostat.temperatureUp(40)
     expect(thermostat.temperature).toBe(60);
   });
+
+  it('turns down the default parameter temperature', function() {
+    thermostat.temperatureDown()
+    expect(thermostat.temperature).toBe(19);
+  });
+
+  it('turns down the temperature defined by user', function() {
+    thermostat.temperatureDown(40)
+    expect(thermostat.temperature).toBe(-20);
+  });
 });
