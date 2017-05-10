@@ -26,7 +26,12 @@ describe('Thermostat', function() {
   });
 
   it('turns down the temperature defined by user', function() {
-    thermostat.temperatureDown(40)
-    expect(thermostat.temperature).toBe(-20);
+    thermostat.temperatureDown(10)
+    expect(thermostat.temperature).toBe(10);
+  });
+
+  it('returns error when temperature is lower than 10', function() {
+    thermostat.temperatureDown(10)
+    expect(function() { thermostat.temperatureDown(); }).toThrow('Minimum temperature is 10.');
   });
 });
