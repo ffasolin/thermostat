@@ -1,6 +1,6 @@
-function Thermostat(temperature = 20) {
+function Thermostat(temperature = 20, powersavemode = true) {
   this.temperature = temperature;
-  this.powersavemode = true;
+  this.powersavemode = powersavemode;
 };
 
 Thermostat.prototype.temperatureUp = function(degrees = 1) {
