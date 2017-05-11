@@ -60,3 +60,15 @@ describe('temperatureDown', function() {
     expect(function() { thermostat.temperatureDown(); }).toThrow('Minimum temperature is 10.');
   });
 });
+
+describe('reset', function() {
+  beforeEach(function() {
+    thermostat = new Thermostat();
+  });
+
+  it('resets temperature to 20', function() {
+    thermostat.temperatureUp();
+    thermostat.reset()
+    expect(thermostat.temperature).toBe(20);
+  });
+});

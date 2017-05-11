@@ -23,3 +23,7 @@ Thermostat.prototype.temperatureDown = function(degrees = 1) {
   this.temperature = this.temperature - degrees
   this.minimumTemperature()
 };
+
+Thermostat.prototype.reset = function() {
+  this.temperature = 20;
+};
