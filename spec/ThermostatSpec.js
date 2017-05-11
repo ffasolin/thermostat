@@ -41,6 +41,7 @@ describe('temperatureUp', function() {
 });
 
 describe('temperatureDown', function() {
+
   beforeEach(function() {
     thermostat = new Thermostat();
   });
@@ -62,6 +63,7 @@ describe('temperatureDown', function() {
 });
 
 describe('reset', function() {
+
   beforeEach(function() {
     thermostat = new Thermostat();
   });
@@ -70,5 +72,26 @@ describe('reset', function() {
     thermostat.temperatureUp();
     thermostat.reset()
     expect(thermostat.temperature).toBe(20);
+  });
+});
+
+describe('energyUsage', function() {
+  
+  beforeEach(function() {
+    thermostat = new Thermostat();
+  });
+
+  it('shows medium-usage when lower than 25', function() {
+    expect(thermostat.energyUsage()).toBe('medium-usage');
+  });
+
+  it('shows low-usage when lower than 18', function() {
+    thermostat.temperatureDown(3);
+    expect(thermostat.energyUsage()).toBe('low-usage');
+  });
+
+  it('shows medium-usage when higher than 25', function() {
+    thermostat.temperatureUp(6);
+    expect(thermostat.energyUsage()).toBe('high-usage');
   });
 });
