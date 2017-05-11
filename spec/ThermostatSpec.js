@@ -26,6 +26,18 @@ describe('temperatureUp', function() {
     thermostat.temperatureUp(40)
     expect(thermostat.temperature).toBe(60);
   });
+
+  it('has maximum temperature of 25 when power save mode is on', function() {
+    thermostat.powersavemode = true;
+    thermostat.temperatureUp(5);
+    expect(function () { thermostat.temperatureUp(); }).toThrow('Power save mode on. Maximum temperature: 25');
+  });
+
+  it('has maximum temperature of 32 when power save mode is off', function() {
+    thermostat.powersavemode = false;
+    thermostat.temperatureUp(12);
+    expect(function () { thermostat.temperatureUp(); }).toThrow('Power save mode off. Maximum temperature: 32');
+  });
 });
 
 describe('temperatureDown', function() {

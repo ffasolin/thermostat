@@ -1,9 +1,16 @@
 function Thermostat(temperature = 20) {
   this.temperature = temperature;
+  this.powersavemode = true;
 };
 
 Thermostat.prototype.temperatureUp = function(degrees = 1) {
-  this.temperature = this.temperature + degrees
+  if (this.powersavemode == true && this.temperature >= 25) {
+    throw 'Power save mode on. Maximum temperature: 25';
+  } else if (this.powersavemode == false && this.temperature >= 32) {
+    throw 'Power save mode off. Maximum temperature: 32';
+  } else {
+    this.temperature = this.temperature + degrees
+  }
 };
 
 Thermostat.prototype.minimumTemperature = function() {
