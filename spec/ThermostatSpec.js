@@ -9,6 +9,13 @@ describe('Thermostat', function() {
   it('starts at 20 degrees', function() {
     expect(thermostat.temperature).toBe(20);
   });
+});
+
+describe('temperatureUp', function() {
+
+  beforeEach(function() {
+    thermostat = new Thermostat();
+  });
 
   it('turns up the default parameter temperature', function() {
     thermostat.temperatureUp()
@@ -18,6 +25,12 @@ describe('Thermostat', function() {
   it('turns up the temperature defined by user', function() {
     thermostat.temperatureUp(40)
     expect(thermostat.temperature).toBe(60);
+  });
+});
+
+describe('temperatureDown', function() {
+  beforeEach(function() {
+    thermostat = new Thermostat();
   });
 
   it('turns down the default parameter temperature', function() {
