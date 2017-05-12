@@ -4,6 +4,9 @@ $(document).ready(function() {
 
   $('#current-temp').html('Current temperature is ' + thermostat.temperature)
 
+  $('#power-save-display').html('Power saving mode: ' + thermostat.powerSaveDisplay())
+
+  $('#power-usage').html('Current power usage: ' + thermostat.energyUsage())
   $('#up').click(function() {
     thermostat.temperatureUp();
   });
