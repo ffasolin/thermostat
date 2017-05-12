@@ -76,8 +76,12 @@ describe('reset', function() {
 });
 
 describe('energyUsage', function() {
-  
+
   beforeEach(function() {
+    thermostat = new Thermostat();
+  });
+
+  afterEach(function() {
     thermostat = new Thermostat();
   });
 

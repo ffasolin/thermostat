@@ -14,6 +14,10 @@ $(document).ready(function() {
   });
 
   $('#power-save').click(function() {
-    thermostat.powersavemode = false;
+    if (thermostat.powersavemode == false) {
+      thermostat.powersavemode = true;
+    } else {
+      thermostat.powersavemode = false;
+    }
   });
 });
