@@ -2,6 +2,10 @@ var thermostat = new Thermostat();
 
 $(document).ready(function() {
 
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=266024989e21dcc05fd57718a97022ab&units=metric', function( data ) {
+    $('#api').html('Temperature in London: ' + data.main.temp);
+  });
+
   $('#current-temp').html('Current temperature is ' + thermostat.temperature)
 
   $('#power-save-display').html('Power saving mode: ' + thermostat.powerSaveDisplay())
