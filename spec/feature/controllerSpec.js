@@ -1,4 +1,4 @@
-describe('Controller-Thermostat', function() {
+describe('Controller', function() {
 
   describe('up', function() {
     it('turns temperature up', function() {

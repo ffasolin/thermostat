@@ -1,6 +1,9 @@
 var thermostat = new Thermostat();
 
 $(document).ready(function() {
+
+  $('#current-temp').html('Current temperature is ' + thermostat.temperature)
+
   $('#up').click(function() {
     thermostat.temperatureUp();
   });
